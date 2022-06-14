@@ -31,7 +31,7 @@ public class workerRestController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
-    @GetMapping(path = "/worker/{id}")
+    @GetMapping(path = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable  Long id) {
         Optional<Worker> worker = workerRepository.findById(id);
         return worker.map(ResponseEntity::ok)
