@@ -1,12 +1,19 @@
 server:
   port: 8001
 
+# Configuration need to whr-worker knows Eureka server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
 spring:
   application:
     name: hr-worker
   devtools:
     restart:
       enabled: true
+
 
 #Database configuration
   datasource:
