@@ -2,6 +2,7 @@ package com.devsuperior.hrworker.restcontrollers;
 
 import com.devsuperior.hrworker.entities.Worker;
 import com.devsuperior.hrworker.repositories.WorkerRepository;
+import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,9 @@ public class workerRestController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable  Long id) {
+
+      //throw new RuntimeException("Testing Fallback method");
+
         Optional<Worker> worker = workerRepository.findById(id);
         return worker.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());

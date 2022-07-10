@@ -8,3 +8,5 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+  instance:
+    lease-renewal-interval-in-seconds: 5

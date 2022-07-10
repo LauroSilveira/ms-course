@@ -1,11 +1,13 @@
 server:
-  port: 8001
+  port: ${PORT:0}
 
 # Configuration need to whr-worker knows Eureka server
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 spring:
   application:
