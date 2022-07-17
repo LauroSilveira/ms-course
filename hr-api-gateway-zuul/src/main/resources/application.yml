@@ -1,0 +1,46 @@
+server:
+  port: 8765
+
+# Config need to hr-api-gateway to connect to Eureka server
+eureka:
+  client:
+    register-with-eureka: true # register him self at eureka
+    fetch-registry: true # pull down a local copy of the registries
+    service-url:
+      defaultZone: http://localhost:8761/eureka # discovery service location
+  instance:
+    prefer-ip-address: true # registers the service ip rather than the server name
+
+spring:
+  application:
+    name: hr-api-gateway
+  devtools:
+    restart:
+      enabled: true
+  cloud:
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+          enabled: true  # use netflix eureka discovery service
+          lower-case-service-id: true
+      routes:
+        - id: hr-worker
+          uri: lb://hr-worker # netflix eureka correspondent service
+          predicates:
+            - Path=/hr-worker/**  # how we map the url to the target service
+        - id: hr-payroll
+          uri: lb://hr-payroll
+          predicates:
+            - Path=/hr-payroll/payments/**
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+

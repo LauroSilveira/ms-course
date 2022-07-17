@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.devsuperior</groupId>
-    <artifactId>hr-api-gateway-zuul</artifactId>
+    <artifactId>hr-api-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hr-api-gateway-zuul</name>
-    <description>An API Gateway with Zuul server</description>
+    <name>hr-api-gateway</name>
+    <description>An API Gateway</description>
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2021.0.3</spring-cloud.version>
@@ -29,6 +29,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
         <dependency>
