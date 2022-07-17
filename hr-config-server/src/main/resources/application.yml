@@ -1,0 +1,12 @@
+server:
+  port: 8888 # default port for config server
+
+spring:
+  application:
+    name: hr-config-server
+  cloud:
+    config:
+      server:
+        default-label: main
+        git:
+          uri: https://github.com/LauroSilveira/ms-config-server
