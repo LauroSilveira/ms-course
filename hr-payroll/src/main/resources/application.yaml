@@ -1,5 +1,5 @@
 server:
-  port: 8101
+  port: ${PORT:0} # configure random port
 
 # Configuration need to hr-payroll connect to Eureka server
 eureka:
@@ -8,6 +8,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} # random instance, necessary to multiples services instances
     lease-renewal-interval-in-seconds: 10
 
 spring:
