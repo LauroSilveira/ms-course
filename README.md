@@ -1,2 +1,2 @@
 # ms-course
-A groupe of microservices with Eureka
+A microservice repository with Spring Cloud Gateway, Spring cloud Netflix Eureka, Spring Feing and Config cloud Server.
