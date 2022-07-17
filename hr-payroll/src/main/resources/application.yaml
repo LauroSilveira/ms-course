@@ -11,10 +11,22 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} # random instance, necessary to multiples services instances
     lease-renewal-interval-in-seconds: 10
 
+#ribbon:
+#  eureka:
+#    enabled: true
+
 spring:
   application:
     name: hr-payroll
   devtools:
     restart:
       enabled: true
+
+# Resilience4J configurations
+resilience4j:
+  circuitbreaker:
+    hr-worker:
+      registerHealthIndicator: true
+      minimumNumberOfCalls: 4
+      slidingWindowSize: 8
 
