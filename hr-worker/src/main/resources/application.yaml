@@ -1,21 +1,19 @@
 server:
   port: ${PORT:0}
 
-# Configuration need to whr-worker knows Eureka server
+# Configuration need to hr-worker connect to Eureka Server
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-
 spring:
   application:
     name: hr-worker
   devtools:
     restart:
       enabled: true
-
 
 #Database configuration
   datasource:

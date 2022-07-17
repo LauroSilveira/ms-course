@@ -1,7 +1,7 @@
 server:
   port: 8101
 
-# Configuration need to whr-worker knows Eureka server
+# Configuration need to hr-payroll connect to Eureka server
 eureka:
   client:
     fetch-registry: true
