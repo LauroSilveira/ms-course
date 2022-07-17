@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:0}
+  port: ${PORT:0} # configure random port
 
 # Configuration need to hr-worker connect to Eureka Server
 eureka:
@@ -7,7 +7,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} # random instance, necessary to multiples services instances
 spring:
   application:
     name: hr-worker
