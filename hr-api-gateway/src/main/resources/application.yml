@@ -32,7 +32,7 @@ spring:
         - id: hr-payroll
           uri: lb://hr-payroll
           predicates:
-            - Path=/hr-payroll/payments/**
+            - Path=/hr-payroll/**
 management:
   endpoint:
     gateway:
