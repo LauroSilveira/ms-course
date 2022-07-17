@@ -2,7 +2,7 @@ package com.devsuperior.hrworker.restcontrollers;
 
 import com.devsuperior.hrworker.entities.Worker;
 import com.devsuperior.hrworker.repositories.WorkerRepository;
-import net.bytebuddy.implementation.bytecode.Throw;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @RestController
 @RequestMapping(value = "/workers")
 public class workerRestController {
@@ -34,9 +34,7 @@ public class workerRestController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable  Long id) {
-
-      //throw new RuntimeException("Testing Fallback method");
-
+        log.info("Request to findById worker {}", id);
         Optional<Worker> worker = workerRepository.findById(id);
         return worker.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
